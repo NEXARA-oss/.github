@@ -1,5 +1,5 @@
 <div align="center">
-  <img src=".github/assets/nexxara_logo.png" alt="Nexara" width="140" /><br/><br/>
+  <img src="/assets/nexxara_logo.png" alt="Nexara" width="140" /><br/><br/>
 
 # Nexara
 
