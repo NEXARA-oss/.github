@@ -28,20 +28,6 @@ Our mission: make agentic AI automation as composable, extensible, and reliable 
 
 ---
 
-## Ecosystem Map
-
-```
-nexara-org/
-├── neuroweave/        ← Flagship: multimodal AI orchestration engine
-├── nexara-plugins/    ← Official plugin registry & SDK
-├── nexara-cli/        ← Developer CLI & workspace tooling
-├── nexara-studio/     ← Visual workflow composer (web app)
-├── nexara-agents/     ← Pre-built agent library
-├── nexara-docs/       ← Unified documentation site
-└── .github/           ← Org-wide community & governance (you are here)
-```
-
----
 
 ## Flagship — NeuroWeave
 
@@ -171,8 +157,6 @@ v1.0  ░░░░░░░░░░░░░░░░░░░░  📋 Planned
 
 | Program | Status | Details |
 |---|---|---|
-| 🎓 GSoC 2025 | Applications open | [Project ideas →](https://github.com/nexara-org/neuroweave/discussions/categories/gsoc) |
-| 🌱 GSSoC 2025 Extended | Mentorship slots open | [Apply →](https://github.com/nexara-org/neuroweave/discussions) |
 | 🏆 Nexara Champions | Ongoing | Active contributors recognized each quarter |
 | 🧑‍🏫 Contributor Mentorship | Ongoing | New to OSS? [Reach out →](https://discord.gg/nexara) |
 
