@@ -1,0 +1,47 @@
+name: "📖 Documentation Issue"
+description: Report missing, incorrect, or unclear documentation
+title: "[Docs]: "
+labels: ["documentation", "good first issue"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Issue Type
+      options:
+        - "Missing documentation"
+        - "Incorrect or outdated information"
+        - "Unclear explanation"
+        - "Missing code example"
+        - "Broken link"
+        - "Translation needed"
+        - "Other"
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Documentation URL
+      description: Link to the affected page (if applicable)
+      placeholder: "https://docs.nexara.dev/neuroweave/..."
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What's Wrong or Missing?
+      description: Be as specific as possible
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Improvement
+      description: What should the documentation say instead? A draft is very welcome.
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Would You Like to Fix This?
+      options:
+        - label: Yes — I'd like to open a PR for this documentation fix

@@ -1,0 +1,90 @@
+name: "✨ Feature Request"
+description: Propose a new feature or enhancement for the Nexara ecosystem
+title: "[Feature]: "
+labels: ["enhancement", "needs-discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting, check if there's an existing [Discussion](https://github.com/nexara-org/neuroweave/discussions) for your idea.
+
+        For large features or architectural changes, **start a Discussion first** — it saves everyone time.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have searched existing issues and discussions — this is not a duplicate
+          required: true
+        - label: This is a feature request, not a bug report or support question
+          required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Feature Area
+      options:
+        - "Core engine (Weave, Agent, Step, Memory)"
+        - "Plugin system & SDK"
+        - "Provider adapters"
+        - "CLI tooling"
+        - "Nexara Studio (visual composer)"
+        - "Documentation & DX"
+        - "Performance"
+        - "New package / repository"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What pain point does this solve? What's the current limitation?
+      placeholder: "Right now there's no way to checkpoint long-running pipelines. If the process crashes, everything restarts from scratch..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your proposed API or implementation. Sketches are great.
+      render: typescript
+      placeholder: |
+        // Proposed API:
+        const pipeline = new Weave()
+          .pipe(new Agent("step1"))
+          .checkpoint("after-step1")   // ← new
+          .pipe(new Agent("step2"))
+          .build();
+
+        // Resume from saved checkpoint:
+        await pipeline.run({ input: "...", resumeFrom: "after-step1" });
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What other approaches did you consider and why are they insufficient?
+
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: Would You Implement This?
+      options:
+        - "Yes — I'd like to implement this"
+        - "Yes — but I'd need guidance from a maintainer"
+        - "Maybe — depending on scope and complexity"
+        - "No — I'm requesting it from the team"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Links, prior art, related issues, benchmarks, research papers

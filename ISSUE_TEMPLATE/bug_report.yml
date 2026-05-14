@@ -1,0 +1,121 @@
+name: "🐛 Bug Report"
+description: Report a reproducible bug in any Nexara package
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for filing a bug report. Please fill out every section — incomplete reports slow down resolution and may be closed.
+
+        > **Security issues must NOT be reported here.** See [SECURITY.md](../SECURITY.md).
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have searched existing issues and this is not a duplicate
+          required: true
+        - label: I have read the [documentation](https://docs.nexara.dev)
+          required: true
+        - label: I am on the latest version of the affected package
+          required: true
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Affected Package
+      options:
+        - "@nexara/core"
+        - "@nexara/agents"
+        - "@nexara/plugins"
+        - "@nexara/providers"
+        - "@nexara/cli"
+        - "nexara-studio (web app)"
+        - "Multiple packages"
+        - "Not sure"
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Package Version
+      description: Run `pnpm list @nexara/core` and paste the version
+      placeholder: "e.g. 0.3.2"
+    validations:
+      required: true
+
+  - type: input
+    id: node
+    attributes:
+      label: Node.js Version
+      description: Output of `node --version`
+      placeholder: "e.g. v20.12.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - Linux (x86_64)
+        - Linux (ARM64)
+        - macOS (Apple Silicon)
+        - macOS (Intel)
+        - Windows (WSL2)
+        - Windows (native)
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear description of what the bug is
+      placeholder: "When I call `pipeline.run()` with a multimodal input, it throws an unhandled rejection..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal Reproduction
+      description: The smallest code that reproduces the issue. Issues without a reproduction will be closed.
+      render: typescript
+      placeholder: |
+        import { Weave, Agent } from "@nexara/core";
+
+        const pipeline = new Weave()
+          .pipe(new Agent("test", { model: "mock" }))
+          .build();
+
+        // This throws:
+        await pipeline.run({ input: "hello" });
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: Include full error output and stack traces
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Screenshots, links, related issues, or anything else that might help
