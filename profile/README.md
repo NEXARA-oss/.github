@@ -36,36 +36,7 @@ Our mission: make agentic AI automation as composable, extensible, and reliable 
 [![CI](https://img.shields.io/github/actions/workflow/status/nexara-org/neuroweave/ci.yml?style=flat-square)](https://github.com/nexara-org/neuroweave/actions)
 [![npm](https://img.shields.io/npm/v/@nexara/core?style=flat-square&logo=npm)](https://npmjs.com/package/@nexara/core)
 
-**NeuroWeave** is a multimodal AI orchestration engine that treats agents, tools, data streams, and decision logic as first-class composable primitives. Build workflows that think, branch, retry, and adapt — powered by any LLM backend.
 
-```typescript
-import { Weave, Agent, Step } from "@nexara/neuroweave";
-
-const pipeline = new Weave()
-  .pipe(new Agent("analyzer", { model: "claude-sonnet-4", tools: [searchTool] }))
-  .branch({
-    condition: (ctx) => ctx.confidence > 0.85,
-    yes: new Step("synthesize"),
-    no:  new Agent("clarifier", { model: "gpt-4o" }),
-  })
-  .pipe(new Step("format-output"))
-  .build();
-
-const result = await pipeline.run({ input: "Summarize the latest AI research" });
-```
-
-**Core capabilities:**
-
-| Capability | Description |
-|---|---|
-| 🖼️ Multimodal-native | Process text, images, audio, video, and structured data in unified pipelines |
-| 🔀 Provider-agnostic | Swap Claude, GPT-4o, Gemini, Mistral, Ollama — zero workflow changes |
-| 💾 Stateful execution | Persistent memory, checkpointing, and resumable long-running agents |
-| 🔌 Plugin ecosystem | Extend with community or private plugins via a typed SDK |
-| 🎨 Visual composer | Design workflows in Nexara Studio, export as executable code |
-| 📊 Observability-first | Full OpenTelemetry traces, spans, and metrics out of the box |
-
-[→ Explore NeuroWeave](https://github.com/nexara-org/neuroweave) · [→ Quick Start](https://docs.nexara.dev/neuroweave/quickstart) · [→ API Reference](https://docs.nexara.dev/api)
 
 ---
 
